@@ -1,3 +1,4 @@
+ //Variable declaration
 function clickEffect() {
     let balls = [];
     let longPressed = false;
@@ -14,7 +15,7 @@ function clickEffect() {
     const pointer = document.createElement("span");
     pointer.classList.add("pointer");
     document.body.appendChild(pointer);
-   
+   // Check the mouse cilck button
     if (canvas.getContext && window.addEventListener) {
       ctx = canvas.getContext("2d");
       updateSize();
@@ -47,7 +48,7 @@ function clickEffect() {
       console.log("canvas or addEventListener is unsupported!");
     }
    
-   
+   //canvas size
     function updateSize() {
       canvas.width = window.innerWidth * 2;
       canvas.height = window.innerHeight * 2;
@@ -65,6 +66,7 @@ function clickEffect() {
         y: height / 2
       };
     }
+    //count the ball size
     class Ball {
       constructor(x = origin.x, y = origin.y) {
         this.x = x;
@@ -90,17 +92,17 @@ function clickEffect() {
         this.vy *= 0.9;
       }
     }
-   
+   //push balls
     function pushBalls(count = 1, x = origin.x, y = origin.y) {
       for (let i = 0; i < count; i++) {
         balls.push(new Ball(x, y));
       }
     }
-   
+   //random calculation
     function randBetween(min, max) {
       return Math.floor(Math.random() * max) + min;
     }
-   
+   //loop calculation
     function loop() {
       ctx.fillStyle = "rgba(255, 255, 255, 0)";
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -121,7 +123,7 @@ function clickEffect() {
       removeBall();
       requestAnimationFrame(loop);
     }
-   
+   //remove balls
     function removeBall() {
       for (let i = 0; i < balls.length; i++) {
         let b = balls[i];
@@ -131,4 +133,5 @@ function clickEffect() {
       }
     }
   }
-  clickEffect();//调用特效函数
+  clickEffect();//call clickeffect() funciton
+  //TEST
